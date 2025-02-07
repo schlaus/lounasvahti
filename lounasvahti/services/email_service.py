@@ -43,10 +43,11 @@ def compose_daily_mail():
 
 def receive_email_blocking():
     controller = Controller(EmailHandler(), hostname=BIND_ADDRESS, port=BIND_PORT)
-    print("Starting SMTP server... Press Ctrl+C to stop.")
+    print("SMTP server is running... Press Ctrl+C to stop.")
     try:
-        controller.run()  # This blocks until manually stopped
+        asyncio.get_event_loop().run_forever()  # This blocks execution
     except KeyboardInterrupt:
+        print("Shutting down SMTP server...")
         controller.stop()
 
 def send_mail(subject, content, recipients):
