@@ -1,6 +1,15 @@
 import sys
+import os
+from lounasvahti import config
+
+DB_PATH = config["database"]["path"]
 
 from lounasvahti.database import create_db, drop_db
+
+# Ensure the directory exists
+DB_DIR = os.path.dirname(DB_PATH)
+if DB_DIR and not os.path.exists(DB_DIR):
+    os.makedirs(DB_DIR, exist_ok=True)
 
 def main():
     if len(sys.argv) < 2:
