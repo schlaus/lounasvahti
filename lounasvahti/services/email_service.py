@@ -47,3 +47,7 @@ def receive_email_blocking():
 
 def send_mail(subject, content, recipients):
     pass
+
+if __name__ == "__main__":
+    receive_email_blocking()
+
