@@ -41,7 +41,7 @@ def compose_daily_mail():
     
     return email_content
 
-def receive_mail_blocking():
+def receive_email_blocking():
     controller = Controller(EmailHandler(), hostname=BIND_ADDRESS, port=BIND_PORT)
     controller.start()
 
