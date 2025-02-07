@@ -43,7 +43,11 @@ def compose_daily_mail():
 
 def receive_email_blocking():
     controller = Controller(EmailHandler(), hostname=BIND_ADDRESS, port=BIND_PORT)
-    controller.start()
+    print("Starting SMTP server... Press Ctrl+C to stop.")
+    try:
+        controller.run()  # This blocks until manually stopped
+    except KeyboardInterrupt:
+        controller.stop()
 
 def send_mail(subject, content, recipients):
     pass
