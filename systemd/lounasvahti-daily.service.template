@@ -1,0 +1,10 @@
+[Unit]
+Description=Lounasvahti Daily Task
+After=network.target
+
+[Service]
+Type=oneshot
+User={{USER}}
+WorkingDirectory={{PROJECT_PATH}}
+ExecStart={{PYTHON_EXEC}} {{PROJECT_PATH}}/scripts/daily_job.py
+Environment="PYTHONPATH={{PROJECT_PATH}}"
