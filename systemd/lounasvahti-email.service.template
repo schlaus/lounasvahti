@@ -1,0 +1,14 @@
+[Unit]
+Description=Lounasvahti Email Receiver Service
+After=network.target
+
+[Service]
+User={{USER}}
+WorkingDirectory={{PROJECT_PATH}}
+ExecStart={{PYTHON_EXEC}} -m lounasvahti.services.email_receiver
+Restart=always
+StandardOutput=append:/var/log/lounasvahti-email.log
+StandardError=append:/var/log/lounasvahti-email.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Lounasvahti Web Service
+After=network.target
+
+[Service]
+User={{USER}}
+WorkingDirectory={{PROJECT_PATH}}
+ExecStart={{PYTHON_EXEC}} -m lounasvahti.services.web_server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

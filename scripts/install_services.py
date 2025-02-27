@@ -1,5 +1,9 @@
-import os
+"""
+This script installs or updates systemd services and timers for the Lounasvahti project.
+"""
+
 import getpass
+import os
 import subprocess
 
 # Get absolute paths
@@ -77,7 +81,8 @@ def install_services():
     """
     Installs or updates both the main daemon service and the daily task timer.
     """
-    install_or_update_service("lounasvahti.service.template", restart=True)
+    install_or_update_service("lounasvahti-email.service.template", restart=True)  # SMTP service
+    install_or_update_service("lounasvahti-web.service.template", restart=True)  # Web service
     install_or_update_service("lounasvahti-daily.service.template", restart=False)
     install_or_update_service("lounasvahti-daily.timer.template", restart=False)
 

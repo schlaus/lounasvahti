@@ -6,5 +6,5 @@ After=network.target
 Type=oneshot
 User={{USER}}
 WorkingDirectory={{PROJECT_PATH}}
-ExecStart={{PYTHON_EXEC}} {{PROJECT_PATH}}/scripts/daily_job.py
+ExecStart={{PYTHON_EXEC}} {{PROJECT_PATH}}/scripts/run_daily_task.py
 Environment="PYTHONPATH={{PROJECT_PATH}}"

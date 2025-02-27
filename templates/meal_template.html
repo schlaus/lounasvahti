@@ -1,0 +1,16 @@
+<li class="meal">
+  <span class="meal-name">{name}</span>
+  <div class="comment-box">{comment}</div>
+  <div class="button-container">
+    <!-- Edit via Web Form -->
+    <a href="{server_url}/comment?meal_id={meal_id}" class="button edit-button">
+      Muokkaa
+    </a>
+
+    <!-- Edit via Email Reply -->
+    <a href="{mailto_link}"
+       class="button reply-button">
+      Lähetä kommentti
+    </a>
+  </div>
+</li>

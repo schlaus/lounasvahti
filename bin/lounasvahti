@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Determine script location and project root
+SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+PROJECT_ROOT="$(realpath "$SCRIPT_DIR/..")"
+VENV_PYTHON="$PROJECT_ROOT/venv/bin/python"
+SCRIPTS_DIR="$PROJECT_ROOT/scripts"
+
+# Ensure virtual environment exists
+if [[ ! -f "$VENV_PYTHON" ]]; then
+    echo "[ERROR] Virtual environment not found. Did you create it?"
+    exit 1
+fi
+
+# Ensure a script name is provided
+if [[ -z "$1" ]]; then
+    echo "Usage: lounasvahti <script_name> [arguments...]"
+    echo "Available scripts:"
+    ls "$SCRIPTS_DIR" | grep '\.py$' | sed 's/.py$//'
+    exit 1
+fi
+
+SCRIPT_NAME="$1"
+shift  # Remove first argument (script name) so the rest can be passed as arguments
+
+SCRIPT_PATH="$SCRIPTS_DIR/$SCRIPT_NAME.py"
+
+# Ensure the script exists
+if [[ ! -f "$SCRIPT_PATH" ]]; then
+    echo "[ERROR] Script '$SCRIPT_NAME' not found in $SCRIPTS_DIR"
+    exit 1
+fi
+
+# Set PYTHONPATH so the lounasvahti package is always accessible
+export PYTHONPATH="$PROJECT_ROOT"
+
+# Execute the script with any provided arguments
+exec "$VENV_PYTHON" "$SCRIPT_PATH" "$@"
