@@ -2,7 +2,11 @@
 >
 > -- <cite>Adam Savage</cite>
 
-Lounasvahti is a LMCS (Lunch Menu Comment System) designed to scrape data from the Palvelukeskus Helsinki eRuokalista service, and send weekly and daily e-mails to tell you what's for lunch. On workdays you get the day's menu at 6 o'clock. On Saturdays you get the whole menu for next week so you can prepare. You can comment on each meal by (1) sending an e-mail with your comment or (2) via a web form. The e-mails contain links for both. You can manage subscriptions by e-mail or from the terminal.
+**Lounasvahti** is a **LMCS (Lunch Menu Comment System)** designed to scrape data from the [Palvelukeskus Helsinki eRuokalista](https://aromi.hel.fi/AromieMenus/FI/Default/PALKE/) service, and send weekly and daily e-mails to tell you what's for lunch. On workdays you get the day's menu at 6 o'clock. On Saturdays you get the whole menu for next week so you can prepare. You can comment on each meal by:
+1. Sending an e-mail with your comment OR
+2. Via a web form.
+
+The e-mails contain links for both. You can manage subscriptions by e-mail or from the terminal.
 
 ## Installation
 
